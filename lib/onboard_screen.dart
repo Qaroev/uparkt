@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'home_screen.dart';
+
 class OnboardScreen extends StatefulWidget {
   const OnboardScreen({Key? key}) : super(key: key);
 
@@ -228,61 +230,79 @@ class _OnboardScreenState extends State<OnboardScreen> {
                       ],
                     ),
                   ),
-                  Container(
-                    width: 258,
-                    height: 71,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 40.57, vertical: 20.29),
-                    decoration: ShapeDecoration(
-                      color: const Color(0xFF856DDC),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.29),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomeScreen()),
+                          (e) => false);
+                    },
+                    child: Container(
+                      width: 258,
+                      height: 71,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 40.57, vertical: 20.29),
+                      decoration: ShapeDecoration(
+                        color: const Color(0xFF856DDC),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.29),
+                        ),
+                        shadows: const [
+                          BoxShadow(
+                            color: Color(0x3D856DDC),
+                            blurRadius: 24.09,
+                            offset: Offset(0, 7.61),
+                            spreadRadius: 0,
+                          )
+                        ],
                       ),
-                      shadows: const [
-                        BoxShadow(
-                          color: Color(0x3D856DDC),
-                          blurRadius: 24.09,
-                          offset: Offset(0, 7.61),
-                          spreadRadius: 0,
-                        )
-                      ],
-                    ),
-                    child: const Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Get Started',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.29,
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w600,
-                            height: 0,
+                      child: const Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Get Started',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.29,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w600,
+                              height: 0,
+                            ),
                           ),
-                        ),
-                        SizedBox(width: 12.68),
-                        Icon(
-                          Icons.arrow_forward_sharp,
-                          color: Colors.white,
-                        ),
-                      ],
+                          SizedBox(width: 12.68),
+                          Icon(
+                            Icons.arrow_forward_sharp,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 ],
               ),
               const SizedBox(height: 26),
-              const Center(
-                child: Text(
-                  'Skip',
-                  style: TextStyle(
-                    color: Color(0xFF34295A),
-                    fontSize: 13,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w400,
-                    height: 0.12,
-                    letterSpacing: -0.40,
+              InkWell(
+                onTap: () {
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreen()),
+                      (e) => false);
+                },
+                child: const Center(
+                  child: Text(
+                    'Skip',
+                    style: TextStyle(
+                      color: Color(0xFF34295A),
+                      fontSize: 13,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w400,
+                      height: 0.12,
+                      letterSpacing: -0.40,
+                    ),
                   ),
                 ),
               ),
